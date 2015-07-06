@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Statistics
+Bundle-SymbolicName: aadl2asp;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.alexnedelcu.aadl2asp.Activator
+Require-Bundle: org.osate.pluginsupport;bundle-version="1.0.0",
+ org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.osate.ui;bundle-version="1.0.0",
+ org.eclipse.emf.ecore;bundle-version="2.10.1",
+ org.osate.aadl2;bundle-version="1.0.0",
+ org.osate.aadl2.modelsupport;bundle-version="1.0.0",
+ org.osate.aadl2.instantiation;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy

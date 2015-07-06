@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin
+id="com.alexnedelcu.aadl2asp"
+name="Convert AADL to ASP"
+version="1.0.0"
+provider-name=""
+class="com.alexnedelcu.aadl2asp.plugin">
+
+<runtime>
+<library name="aadl2asp.jar">
+<export name="*"/>
+</library>
+</runtime>
+
+
+	<extension point="org.eclipse.ui.actionSets">
+		<actionSet
+		id="com.alexnedelcu.aadl2asp.actionSet"
+		label="AADL model and environment analysis (Answer-set programming conversion)"
+		visible="true">
+		
+			<menu
+			id="analysisMenu"
+			label="Analysis &amp;Menu"/>
+			
+			<action
+			id="com.alexnedelcu.aadl2asp.DoAadl2AspConversion"
+			label="&amp;AADL model and environment analysis (ASP)"
+			class="com.alexnedelcu.aadl2asp.DoAadl2AspConversion"
+			icon="icons/icon_wand.gif"
+			disabledIcon="icons/noStats.gif"
+			tooltip="Answer-set programming conversion"
+			enablesFor="1"
+			toolbarPath="com.alexnedelcu.aadl2asp.actionSet"
+			menubarPath="analysisMenu/statisticsGroup">
+				<enablement>
+					<or>
+						<and>
+							<objectClass name="org.eclipse.core.resources.IFile"/>
+							<objectState name="extension" value="aaxl2"/>
+						</and>
+						<and>
+							<objectClass name="org.eclipse.core.resources.IFile"/>
+							<objectState name="extension" value="aaxl"/>
+						</and>
+						<objectClass name="edu.cmu.sei.aadl.model.core.AObject"/>
+						<objectClass name="org.eclipse.emf.edit.provider.IWrapperItemProvider"/>
+					</or>
+				</enablement>
+			</action>
+		</actionSet>
+	</extension>
+</plugin>

@@ -6,8 +6,6 @@ import org.osate.aadl2.PropertyAssociation;
 import org.osate.aadl2.PropertyExpression;
 import org.osate.aadl2.impl.RealLiteralImpl;
 
-import com.alexnedelcu.aadl2asp.translator.PropertyTranslator;
-
 public class ValueRealTermTranslator extends PropertyTranslator {
 
 	public ValueRealTermTranslator(PropertyAssociation propAssc, EList<Mode> modes) {

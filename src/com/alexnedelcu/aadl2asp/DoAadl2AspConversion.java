@@ -10,6 +10,7 @@ import org.osate.aadl2.instance.InstanceObject;
 import org.osate.ui.actions.AaxlReadOnlyActionAsJob;
 import org.osate.ui.dialogs.Dialog;
 
+import com.alexnedelcu.aadl2asp.translator.AADLModelTranslator;
 import com.alexnedelcu.aadl2asp.translator.Translator;
 
 public class DoAadl2AspConversion extends AaxlReadOnlyActionAsJob  {
@@ -18,6 +19,7 @@ public class DoAadl2AspConversion extends AaxlReadOnlyActionAsJob  {
 	protected String getActionName() {
 		return "Counting components...";
 	}
+	
 
 	@Override
 	protected void doAaxlAction(IProgressMonitor monitor, Element root) {
@@ -34,14 +36,14 @@ public class DoAadl2AspConversion extends AaxlReadOnlyActionAsJob  {
 			 * declarative models in the workspace.
 			 */
 			ComponentManager.getInstance().reset();
-			final AadlParserTriggers stats = new AadlParserTriggers();
+			final Aadl2Parser stats = new Aadl2Parser();
 			stats.initSwitches();
 
 			stats.defaultTraversalAllDeclarativeModels();
 			
-			root.getChildren();
+//			root.getChildren();
 			
-			final String aspFromAADL = new Translator().translate();
+			final String aspFromAADL = new AADLModelTranslator().translate();
 			
 			// open a dialog that
 			// - shows the ASP resulting from AADL

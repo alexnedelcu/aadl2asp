@@ -26,7 +26,7 @@ public class ASPDialog extends org.eclipse.jface.dialogs.Dialog {
 	 @Override
 	 protected Control createDialogArea(Composite parent) {
 	    Composite container = (Composite) super.createDialogArea(parent);
-
+	    
 	    Label lblTimeDivisions = new Label(container, SWT.HORIZONTAL);
 	    lblTimeDivisions.setText("ASP maximum time divisions:");
 	    
@@ -38,7 +38,8 @@ public class ASPDialog extends org.eclipse.jface.dialogs.Dialog {
 	    Label lblAadlModelRules = new Label(container, SWT.HORIZONTAL);
 	    lblAadlModelRules.setText("ASP repreentation of AADL properties:");
 
-	    GridData grid = new GridData(700, 250);
+	    GridData grid = new GridData(700, 210);
+	    GridData shortGrid = new GridData(700, 75);
 	    
 	    final Text textAadlModelRules = new Text(container, SWT.MULTI | SWT.V_SCROLL | SWT.H_SCROLL);
 	    textAadlModelRules.setLayoutData(grid);
@@ -54,8 +55,8 @@ public class ASPDialog extends org.eclipse.jface.dialogs.Dialog {
 	    Label lblQuery = new Label(container, SWT.HORIZONTAL);
 	    lblQuery.setText("ASP Query:");
 	    
-	    final Text textQuery = new Text(container, SWT.SINGLE);
-	    textQuery.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+	    final Text textQuery = new Text(container, SWT.MULTI | SWT.V_SCROLL | SWT.H_SCROLL);
+	    textQuery.setLayoutData(shortGrid);
 	    
 	    
 	    Button button = new Button(container, SWT.PUSH);

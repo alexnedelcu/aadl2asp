@@ -1,4 +1,4 @@
-package com.alexnedelcu.aadl2asp.translator;
+package com.alexnedelcu.aadl2asp.translator.properties;
 
 import org.eclipse.emf.common.util.EList;
 import org.osate.aadl2.Classifier;
@@ -14,10 +14,7 @@ import org.osate.aadl2.impl.DeviceTypeImpl;
 import org.osate.aadl2.impl.RealLiteralImpl;
 import org.osate.aadl2.impl.StringLiteralImpl;
 
-import com.alexnedelcu.aadl2asp.translator.properties.ValueComputedTermTranslator;
-import com.alexnedelcu.aadl2asp.translator.properties.ValueRangeTermTranslator;
-import com.alexnedelcu.aadl2asp.translator.properties.ValueRealTermTranslator;
-import com.alexnedelcu.aadl2asp.translator.properties.ValueStringTermTranslator;
+import com.alexnedelcu.aadl2asp.translator.Translator;
 
 public class PropertyTranslator extends Translator {
 	

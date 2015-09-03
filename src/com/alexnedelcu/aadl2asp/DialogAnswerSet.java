@@ -36,11 +36,11 @@ public class DialogAnswerSet extends Dialog {
 	    Composite container = (Composite) super.createDialogArea(parent);
 
 	    Label lblResultDesc = new Label(container, SWT.HORIZONTAL);
-	    lblResultDesc.setText("ASP Answersets:");
+	    lblResultDesc.setText("ASP Answer Sets:");
 
 	    GridData grid = new GridData(500, 500);
 	    
-	    final Text textResults = new Text(container, SWT.MULTI | SWT.V_SCROLL);
+	    final Text textResults = new Text(	container, SWT.MULTI | SWT.V_SCROLL);
 	    textResults.setLayoutData(grid);
 	    textResults.setText(results);
 
@@ -62,7 +62,7 @@ public class DialogAnswerSet extends Dialog {
 			  String [] lines = results.split("\n");
 			  for (int i=0; i<lines.length; i++) {
 				  if (lines[i].matches(textFilterByRegExpr.getText()))
-					  filteredResults += lines[i];
+					  filteredResults += lines[i]+"\n";
 			  }
 			  if (filteredResults.equals(""))
 				  filteredResults = "Nothing to show";

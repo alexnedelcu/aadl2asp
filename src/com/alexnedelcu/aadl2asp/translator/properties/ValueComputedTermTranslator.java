@@ -7,8 +7,6 @@ import org.osate.aadl2.PropertyExpression;
 import org.osate.aadl2.impl.ComputedValueImpl;
 import org.osate.aadl2.impl.RealLiteralImpl;
 
-import com.alexnedelcu.aadl2asp.translator.PropertyTranslator;
-
 public class ValueComputedTermTranslator extends PropertyTranslator {
 
 	public ValueComputedTermTranslator(PropertyAssociation propertyAssc, EList<Mode> modes) {
@@ -30,17 +28,19 @@ public class ValueComputedTermTranslator extends PropertyTranslator {
 					Mode mode) {
 				
 				String function = formatToLegalASPName(((ComputedValueImpl) propExpr).getFunction());
-				return "holds(property(" + aadlOwningComponentName+ ", "+ propertyQualifiedName + ", X), S) :- "
-						+"computed_value("+formatToLegalASPName(function)+", X, S), "
-						+"holds(currentMode("+formatToLegalASPName(mode.getFullName())+"), S), step(S).\n"; 
+				return "holds(property(" + aadlOwningComponentName+ ", "+ propertyQualifiedName + ", X), S) :- \n\t"
+						+"computed_value("+formatToLegalASPName(function)+", X, S), \n\t"
+						+"holds(currentState("+aadlOwningComponentName+", "+formatToLegalASPName(mode.getFullName())+"), S), \n\t"
+						+"step(S).\n"; 
 			}
 
 			@Override
 			protected String ifNonModeSpecificValue(PropertyExpression propExpr) {
 				
 				String function = formatToLegalASPName(((ComputedValueImpl) propExpr).getFunction());
-				return "holds(property(" + aadlOwningComponentName+ ", "+ propertyQualifiedName + ", X), S) :- "
-						+"computed_value("+formatToLegalASPName(function)+", X, S), step(S).\n"; 
+				return "holds(property(" + aadlOwningComponentName+ ", "+ propertyQualifiedName + ", X), S) :- \n\t"
+				+"computed_value("+formatToLegalASPName(function)+", X, S),\n\t"
+				+"step(S).\n"; 
 				
 			}
 			

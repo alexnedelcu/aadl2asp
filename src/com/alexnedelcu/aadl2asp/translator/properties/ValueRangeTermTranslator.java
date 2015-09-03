@@ -7,8 +7,6 @@ import org.osate.aadl2.PropertyExpression;
 import org.osate.aadl2.UnitLiteral;
 import org.osate.aadl2.impl.RangeValueImpl;
 
-import com.alexnedelcu.aadl2asp.translator.PropertyTranslator;
-
 public class ValueRangeTermTranslator extends PropertyTranslator {
 
 
